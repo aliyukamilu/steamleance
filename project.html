@@ -1,0 +1,313 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Steamlance</title>
+  <link rel="shortcut icon" href="images/ico.ico">
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/bootstrap/dist/css/bootstrap.min.css">
+  <script src="style/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+  <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+
+
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <img src="images/logoW.png" alt="">
+      <div class="profile">
+        <img src="images/prof.png" alt="" height="63px" width="63px" style="margin-bottom: 10px;">
+        <p>Abubakar Bello</p>
+        <p>ID : #3245</p>
+      </div>
+      <button class="btn-pro"><a href="#">Pro</a></button>
+    </div>
+    <div>
+      <ul class="list-unstyled components">
+        <li>
+          <a href="index.html"><span class="iconify" data-inline="false" data-icon="mdi:home-roof"></span>
+            Dashboard</a>
+        </li>
+        <li class="active">
+          <a href="project.html"><span class="iconify" data-inline="false" data-icon="whh:projectpier"></span>
+            Projects</a>
+        </li>
+        <li>
+          <a href="messages.html"><span class="iconify" data-inline="false" data-icon="tabler:messages"></span>
+            Messages</a>
+        </li>
+        <li>
+          <a href="analytics.html"><span class="iconify" data-inline="false" data-icon="uim:analytics"></span>
+            Analytics</a>
+        </li>
+        <li>
+          <a href="#"><span class="iconify" data-inline="false" data-icon="dashicons:portfolio"></span>
+            Portfolio</a>
+        </li>
+        <li class="">
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span
+              class="iconify" data-inline="false" data-icon="carbon:user-profile"></span> Profile</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li>
+              <a href="#">profile 1</a>
+            </li>
+            <li>
+              <a href="#">profile 2</a>
+            </li>
+            <li>
+              <a href="#">profile 3</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span class="iconify" data-inline="false" data-icon="mdi:microsoft-teams"></span>
+            Teams</a>
+        </li>
+        <li>
+          <a href="#"><span class="iconify" data-inline="false" data-icon="maki:residential-community-15"></span>
+            Community</a>
+        </li>
+      </ul>
+
+  </nav>
+
+  <!-- Page Content -->
+  <div id="content">
+
+    <div class="search">
+      <input class="search__input" type="text" placeholder="Search anything">
+    </div>
+
+    <div>
+      <div style="margin-top: 50px">
+        <h1 style="font-weight: bold;" class="">Projects</h1>
+      </div>
+
+      <div class="task">
+        <button class="btn-task"><span class="iconify" data-inline="false" data-icon="clarity:tasks-line"
+            style="font-size: 20px;"></span>
+          Task</button>
+      </div>
+    </div>
+
+    <div class="projectreading row">
+      <div class="col-md-2">
+        <span class="row">
+          <p style="font-weight: bold; font-size: 1.5em;">120</p>
+          <p style="margin-left: 20px; margin-top: 10px; font-size: 0.8em;"> projects</p>
+        </span>
+      </div>
+      <div class="col-md-2">
+        <span class="row">
+          <p style="font-weight: bold; font-size: 1.5em;">10</p>
+          <p style="margin-left: 20px; margin-top: 10px; font-size: 0.8em;"> Clients</p>
+        </span>
+      </div>
+      <div class="col-md-2">
+        <span class="row">
+          <p style="font-weight: bold; font-size: 1.5em;">5</p>
+          <p style="margin-left: 20px; margin-top: 10px; font-size: 0.8em;"> Teams</p>
+        </span>
+      </div>
+    </div>
+
+    <div class="row graphsec">
+      <img class="col-md-1" src="images/graph.png" alt="">
+      <div class="col-md-2" style="line-height: 10px;">
+        <p><img src="images/yellow.png" alt=""> Not yet</p>
+        <p><img src="images/blue.png" alt=""> active</p>
+        <p><img src="images/green.png" alt=""> completed</p>
+      </div>
+
+      <div class="row" style="line-height: 10px;">
+        <div class="col-md-6">
+          <p>Microsoft</p>
+          <p>Apple</p>
+          <p>Kano Meet</p>
+        </div>
+        <div class="col-md-6" style="width: 300px; margin-left: -60px;">
+          <p>Skyline</p>
+          <p>DigiCode services</p>
+          <p>Parity Enterprise</p>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="view-board" style="margin-top: 20px; padding-left: 20px;">
+      <span class="row">
+        <p>View : </p>
+        <p style="font-weight: bold; margin-left: 5px;">Board</p>
+      </span>
+    </div>
+    <div class="filter">
+      <div class="row">
+        <span class="iconify" data-inline="false" data-icon="clarity:filter-2-line" style="font-size: 24px;"></span>
+        <p style="font-weight: bold; color: #858585; margin-left: 5px;">Filter</p>
+
+
+        <span class="iconify" data-inline="false" data-icon="heroicons-solid:sort-ascending"
+          style="font-size: 24px; margin-left: 20px; color: #858585;"></span>
+        <p style="font-weight: bold; color: #858585; margin-left: 5px;">Sort : </p>
+        <p style="font-weight: bold; margin-left: 10px;">Date Created</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <span>
+          <p style="border-bottom: 2px solid #FF9838;">pending</p>
+        </span>
+        <div class="pendingbox">
+          <p class="title"><a href="projectpage.html">Girl Child Concept</a></p>
+          <p class="description">
+            The is a platform for the borno girls
+            to take a online formal learning.
+          </p>
+          <div class="row" style="margin-left: 1px; color: #858585;">
+            <span class="iconify" data-inline="false" data-icon="mdi:calendar-range-outline"
+              style="font-size: 28px;"></span>
+            <p style="font-size: 12px; margin-left: 10px;"> 28/06/2020 - 28/08/2020</p>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; margin-top: -10px;">
+            <span class="letters" style="background-color: #535B70">
+              <p>a</p>
+            </span>
+            <span class="letters" style="background-color: #3A78F2">
+              <p>b</p>
+            </span>
+            <span class="letters" style="background-color: #FF9838">
+              <p>c</p>
+            </span>
+            <span class="letters" style="background-color: #31AC4C">
+              <p>d</p>
+            </span>
+            <span class="letters" style="background-color: #764ABC">
+              <p>e</p>
+            </span>
+          </div>
+
+          <div class="row" style="display: flex; justify-content: flex-end; padding-right: 20px; margin-top: 10px;">
+            <span class="iconify" data-inline="false" data-icon="cil:arrow-circle-left"
+              style="font-size: 30px; color: #C4C4C4;"></span>
+            <span class="iconify" data-inline="false" data-icon="cil:arrow-circle-right"
+              style="font-size: 30px; color: #31AC4C;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <span>
+          <p class="inner" style="border-bottom: 2px solid #3A78F2;">active</p>
+        </span>
+
+        <div class="pendingbox">
+          <p class="title"><a href="projectpage.html">Attareeq App</a></p>
+          <p class="description">
+            The is a Mobile Platform.
+          </p>
+          <div class="row" style="margin-left: 1px; color: #858585;">
+            <span class="iconify" data-inline="false" data-icon="mdi:calendar-range-outline"
+              style="font-size: 28px;"></span>
+            <p style="font-size: 12px; margin-left: 10px;"> 28/06/2020 - 28/08/2020</p>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; margin-top: -10px;">
+            <span class="letters" style="background-color: #535B70">
+              <p>a</p>
+            </span>
+            <span class="letters" style="background-color: #3A78F2">
+              <p>b</p>
+            </span>
+            <span class="letters" style="background-color: #FF9838">
+              <p>c</p>
+            </span>
+            <span class="letters" style="background-color: #31AC4C">
+              <p>d</p>
+            </span>
+            <span class="letters" style="background-color: #764ABC">
+              <p>e</p>
+            </span>
+          </div>
+
+          <div class="row" style="display: flex; justify-content: flex-end; padding-right: 20px; margin-top: 10px;">
+            <span class="iconify" data-inline="false" data-icon="cil:arrow-circle-left"
+              style="font-size: 30px; color: #FF9838;"></span>
+            <span class="iconify" data-inline="false" data-icon="cil:arrow-circle-right"
+              style="font-size: 30px; color: #31AC4C;"></span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-4">
+        <span>
+          <p style="border-bottom: 2px solid #31AC4C;">completed</p>
+        </span>
+
+        <div class="pendingbox">
+          <p class="title"><a href="projectpage.html">e-Commerce Website</a></p>
+          <p class="description">
+            The is a platform for the borno girls
+            to take a online formal learning
+          </p>
+          <div class="row" style="margin-left: 1px; color: #858585;">
+            <span class="iconify" data-inline="false" data-icon="mdi:calendar-range-outline"
+              style="font-size: 28px;"></span>
+            <p style="font-size: 12px; margin-left: 10px;"> 28/06/2020 - 28/08/2020</p>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; margin-top: -10px;">
+            <span class="letters" style="background-color: #535B70">
+              <p>a</p>
+            </span>
+            <span class="letters" style="background-color: #3A78F2">
+              <p>b</p>
+            </span>
+            <span class="letters" style="background-color: #FF9838">
+              <p>c</p>
+            </span>
+            <span class="letters" style="background-color: #31AC4C">
+              <p>d</p>
+            </span>
+            <span class="letters" style="background-color: #764ABC">
+              <p>e</p>
+            </span>
+          </div>
+
+          <div class="row" style="display: flex; justify-content: flex-end; padding-right: 20px; margin-top: 10px;">
+            <span class="iconify" data-inline="false" data-icon="cil:arrow-circle-left"
+              style="font-size: 30px; color: #FF9838;"></span>
+            <span class="iconify" data-inline="false" data-icon="cil:arrow-circle-right"
+              style="font-size: 30px; color: #C4C4C4;"></span>
+          </div>
+        </div>
+
+        
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+
+  <script src="js/main.js"></script>
+</body>
+
+
+</html>

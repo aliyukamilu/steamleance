@@ -1,0 +1,779 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Steamlance</title>
+  <link rel="shortcut icon" href="images/ico.ico">
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/bootstrap/dist/css/bootstrap.min.css">
+  <script src="style/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+  <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+
+
+  <style>
+    .tabs {
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      position: relative;
+      padding: 50px;
+      padding-bottom: 80px;
+      width: 80vw;
+      height: 500px;
+
+      border-radius: 5px;
+      min-width: 240px;
+    }
+
+    .tabs input[name="tab-control"] {
+      display: none;
+    }
+
+    .tabs .content section h2,
+    .tabs ul li label {
+      font-weight: bold;
+      font-size: 18px;
+      color: #428BFF;
+    }
+
+    .tabs ul {
+      width: 600px;
+      margin-top: -30px;
+      margin-left: -80px;
+      list-style-type: none;
+      padding: 0;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      margin-bottom: 10px;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: end;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .tabs ul li {
+      box-sizing: border-box;
+      -webkit-box-flex: 1;
+      flex: 1;
+      width: 100%;
+      padding: 0 2px;
+      text-align: center;
+    }
+
+    .tabs ul li label {
+      
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      color: #929daf;
+      /* padding: 5px auto; */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+      font-size: 14px;
+      cursor: pointer;
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      white-space: nowrap;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .tabs ul li label br {
+      display: none;
+    }
+
+    .tabs ul li label:hover,
+    .tabs ul li label:focus,
+    .tabs ul li label:active {
+      outline: 0;
+      color: #bec5cf;
+    }
+
+    .tabs .slider {
+      position: relative;
+      width: 2%;
+      -webkit-transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+      transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+    }
+
+    section {
+      margin-left: -50px;
+    }
+
+    /* .tabs .slider .indicator {
+      position: relative;
+      width: 50px;
+      max-width: 100%;
+      margin: 0 auto;
+      height: 2px;
+      background: #FF9838;
+      border-radius: 1px;
+    } */
+
+    .tabs .content {
+      margin-top: 20px;
+    }
+
+    .tabs .content section {
+      display: none;
+      -webkit-animation-name: content;
+      animation-name: content;
+      -webkit-animation-direction: normal;
+      animation-direction: normal;
+      -webkit-animation-duration: 0.3s;
+      animation-duration: 0.3s;
+      -webkit-animation-timing-function: ease-in-out;
+      animation-timing-function: ease-in-out;
+      -webkit-animation-iteration-count: 1;
+      animation-iteration-count: 1;
+      line-height: 1.4;
+    }
+
+
+    .tabs input[name="tab-control"]:nth-of-type(1):checked~ul>li:nth-child(1)>label {
+      cursor: default;
+      color: #000000;
+    }
+
+    @media (max-width: 600px) {
+      .tabs input[name="tab-control"]:nth-of-type(1):checked~ul>li:nth-child(1)>label {
+        background: rgba(0, 0, 0, 0.08);
+      }
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(1):checked~.slider {
+      -webkit-transform: translateX(0%);
+      transform: translateX(0%);
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(1):checked~.content>section:nth-child(1) {
+      display: block;
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(2):checked~ul>li:nth-child(2)>label {
+      cursor: default;
+      color: #000000;
+    }
+
+    @media (max-width: 600px) {
+      .tabs input[name="tab-control"]:nth-of-type(2):checked~ul>li:nth-child(2)>label {
+        background: rgba(0, 0, 0, 0.08);
+      }
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(2):checked~.slider {
+      -webkit-transform: translateX(100%);
+      transform: translateX(100%);
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(2):checked~.content>section:nth-child(2) {
+      display: block;
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(3):checked~ul>li:nth-child(3)>label {
+      cursor: default;
+      color: #000000;
+    }
+
+    @media (max-width: 600px) {
+      .tabs input[name="tab-control"]:nth-of-type(3):checked~ul>li:nth-child(3)>label {
+        background: rgba(0, 0, 0, 0.08);
+      }
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(3):checked~.slider {
+      -webkit-transform: translateX(200%);
+      transform: translateX(200%);
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(3):checked~.content>section:nth-child(3) {
+      display: block;
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(4):checked~ul>li:nth-child(4)>label {
+      cursor: default;
+      color: #000000;
+    }
+
+
+    @media (max-width: 600px) {
+      .tabs input[name="tab-control"]:nth-of-type(4):checked~ul>li:nth-child(4)>label {
+        background: rgba(0, 0, 0, 0.08);
+      }
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(4):checked~.slider {
+      -webkit-transform: translateX(300%);
+      transform: translateX(300%);
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(4):checked~.content>section:nth-child(4) {
+      display: block;
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(5):checked~ul>li:nth-child(5)>label {
+      cursor: default;
+      color: #000000;
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(5):checked~ul>li:nth-child(5)>label svg {
+      fill: #000000;
+    }
+
+    @media (max-width: 600px) {
+      .tabs input[name="tab-control"]:nth-of-type(5):checked~ul>li:nth-child(5)>label {
+        background: rgba(0, 0, 0, 0.08);
+      }
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(5):checked~.slider {
+      -webkit-transform: translateX(400%);
+      transform: translateX(400%);
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(5):checked~.content>section:nth-child(5) {
+      display: block;
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(6):checked~ul>li:nth-child(6)>label {
+      cursor: default;
+      color: #000000;
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(6):checked~ul>li:nth-child(6)>label svg {
+      fill: #000000;
+    }
+
+    @media (max-width: 600px) {
+      .tabs input[name="tab-control"]:nth-of-type(6):checked~ul>li:nth-child(6)>label {
+        background: rgba(0, 0, 0, 0.08);
+      }
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(6):checked~.slider {
+      -webkit-transform: translateX(500%);
+      transform: translateX(500%);
+    }
+
+    .tabs input[name="tab-control"]:nth-of-type(6):checked~.content>section:nth-child(6) {
+      display: block;
+    }
+
+    @-webkit-keyframes content {
+      from {
+        opacity: 0;
+        -webkit-transform: translateY(5%);
+        transform: translateY(5%);
+      }
+
+      to {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
+      }
+    }
+
+    @keyframes content {
+      from {
+        opacity: 0;
+        -webkit-transform: translateY(5%);
+        transform: translateY(5%);
+      }
+
+      to {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .tabs ul li label {
+        white-space: initial;
+      }
+
+      .tabs ul li label br {
+        display: initial;
+      }
+
+      .tabs ul li label svg {
+        height: 1.5em;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .tabs ul li label {
+        padding: 5px;
+        border-radius: 5px;
+      }
+
+      .tabs ul li label span {
+        display: none;
+      }
+
+      .tabs .slider {
+        display: none;
+      }
+
+      .tabs .content {
+        margin-top: 20px;
+      }
+
+      .tabs .content section h2 {
+        display: block;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <img src="images/logoW.png" alt="">
+      <div class="profile">
+        <img src="images/prof.png" alt="" height="63px" width="63px" style="margin-bottom: 10px;">
+        <p>Abubakar Bello</p>
+        <p>ID : #3245</p>
+      </div>
+      <button class="btn-pro"><a href="#">Pro</a></button>
+    </div>
+    <div>
+      <ul class="list-unstyled components">
+        <li>
+          <a href="index.html"><span class="iconify" data-inline="false" data-icon="mdi:home-roof"></span>
+            Dashboard</a>
+        </li>
+        <li class="active">
+          <a href="project.html"><span class="iconify" data-inline="false" data-icon="whh:projectpier"></span>
+            Projects</a>
+        </li>
+        <li>
+          <a href="messages.html"><span class="iconify" data-inline="false" data-icon="tabler:messages"></span>
+            Messages</a>
+        </li>
+        <li>
+          <a href="analytics.html"><span class="iconify" data-inline="false" data-icon="uim:analytics"></span>
+            Analytics</a>
+        </li>
+        <li>
+          <a href="#"><span class="iconify" data-inline="false" data-icon="dashicons:portfolio"></span>
+            Portfolio</a>
+        </li>
+        <li class="">
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span
+              class="iconify" data-inline="false" data-icon="carbon:user-profile"></span> Profile</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li>
+              <a href="#">profile 1</a>
+            </li>
+            <li>
+              <a href="#">profile 2</a>
+            </li>
+            <li>
+              <a href="#">profile 3</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span class="iconify" data-inline="false" data-icon="mdi:microsoft-teams"></span>
+            Teams</a>
+        </li>
+        <li>
+          <a href="#"><span class="iconify" data-inline="false" data-icon="maki:residential-community-15"></span>
+            Community</a>
+        </li>
+      </ul>
+
+  </nav>
+
+  <!-- Page Content -->
+  <div id="content">
+
+    <div>
+      <h2 style="font-weight: bold;">Girl Child Concept</h2>
+    </div>
+
+    <div class="row" style="padding-left: 20px; margin-top: 20px;">
+      <p style="font-weight: bold; font-size: 2em;">30</p>
+      <p style="margin-top: 15px; margin-left: 10px; color: #858585;">Tasks</p>
+    </div>
+
+    <div class="row" style="padding-left: 20px; margin-top: 20px;">
+      <p style="color: #858585;">View:</p>
+      <p style="font-weight: bold; margin-left: 10px;">Board</p>
+    </div>
+
+    <div class="tabs">
+      <input type="radio" id="tab1" name="tab-control" checked>
+      <input type="radio" id="tab2" name="tab-control">
+      <input type="radio" id="tab3" name="tab-control">
+      <input type="radio" id="tab4" name="tab-control">
+      <input type="radio" id="tab5" name="tab-control">
+      <input type="radio" id="tab6" name="tab-control" >
+      <ul>
+        <li title="Overview"><label for="tab1" role="button"><span>Overview</span></label></li>
+        <li title="Members"><label for="tab2" role="button"><span>Members</span></label></li>
+        <li title="Tasks"><label for="tab3" role="button"><span>Tasks</span></label></li>
+        <li title="Files"><label for="tab4" role="button"><span>Files</span></label></li>
+        <li title="Architecture"><label for="tab5" role="button"><span>Architecture</span></label></li>
+        <li title="Returns"><label for="tab6" role="button"><span>Comments</span></label></li>
+      </ul>
+
+      <div class="slider">
+        <div class="indicator"></div>
+      </div>
+
+      <div class="content">
+        <section>
+          <div class="row">
+            <div class="col-md-8 overviewboxleft">
+              <h5 style="font-weight: bold;">Girl Child Concern</h5>
+              <p style="color: #858585;">The is a platform for the borno girls to take a online formal learning</p>
+            </div>
+
+            <div class="col-md-4 overviewboxright">
+
+              <div class="members">
+                <div class="membersheader">
+                  <p style="margin-left: 20px;">Members</p>
+                  <div class="membersIcon">
+                    <p>5</p>
+                  </div>
+                </div>
+
+                <div style="display: flex; margin-top: 20px; margin-left: 30px;">
+                  <span class="letters" style="background-color: #535B70;">
+                    <p>a</p>
+                  </span>
+                  <span class="letters" style="background-color: #3A78F2">
+                    <p>b</p>
+                  </span>
+                  <span class="letters" style="background-color: #FF9838">
+                    <p>c</p>
+                  </span>
+                  <span class="letters" style="background-color: #31AC4C">
+                    <p>d</p>
+                  </span>
+                  <span class="letters" style="background-color: #764ABC">
+                    <p>e</p>
+                  </span>
+                </div>
+
+                <div class="membersheader" style="margin-top: 60px;">
+                  <p style="margin-left: 20px;">Project period</p>
+                </div>
+
+                <div style="display: flex; margin-top: 20px; margin-left: 30px;">
+                  <span class="letters row" style="background-color: #535B70; width: 50px; height: 50px;">
+                    <p style="margin-left: 15px; margin-top: 15px;">45</p>
+                  </span>
+                  <p style="margin-left: 25px; margin-top: 15px;">Days</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        <section>
+          <div class="memberlistsection col-sm-8" >
+
+            <div class="row memberlist">
+              <span class="letters" style="background-color: #535B70; margin-left: 20px;">
+                <p>a</p>
+              </span>
+              <div style="margin-left: 20px; line-height: 10px;">
+                <p style="font-weight: bold;">Abubakar Bello</p>
+                <p>Backend Developer</p>
+              </div>
+            </div>
+            <div class="row memberlist">
+              <span class="letters" style="background-color: #428BFF; margin-left: 20px;">
+                <p>a</p>
+              </span>
+              <div style="margin-left: 20px; line-height: 10px;">
+                <p style="font-weight: bold;">Peter Sunday</p>
+                <p>Backend Developer</p>
+              </div>
+            </div>
+            <div class="row memberlist">
+              <span class="letters" style="background-color: #FF9838; margin-left: 20px;">
+                <p>a</p>
+              </span>
+              <div style="margin-left: 20px; line-height: 10px;">
+                <p style="font-weight: bold;">Christina Berlin</p>
+                <p>Frontend Developer</p>
+              </div>
+            </div>
+            <div class="row memberlist">
+              <span class="letters" style="background-color: #31AC4C; margin-left: 20px;">
+                <p>a</p>
+              </span>
+              <div style="margin-left: 20px; line-height: 10px;">
+                <p style="font-weight: bold;">David Mike</p>
+                <p>Graphics Designer</p>
+              </div>
+            </div>
+            <div class="row memberlist">
+              <span class="letters" style="background-color: #764ABC; margin-left: 20px;">
+                <p>a</p>
+              </span>
+              <div style="margin-left: 20px; line-height: 10px;">
+                <p style="font-weight: bold;">Ibrahim Ismail</p>
+                <p>Javascript Developer</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section>
+          <div class="col-md-12" style="margin-left: -12px;">
+            <!-- <div class="search col-md-4" style="float: right; margin-right: -150px;">
+              <input class="search__input" type="text" placeholder="Search anything">
+            </div> -->
+
+            <div class="row" style="margin-top: 30px;">
+              <div class="col-md-4">
+                <span>
+                  <p style="border-bottom: 2px solid #FF9838;">pending</p>
+                </span>
+                <div class="pendingbox">
+                  <p class="title"><a href="projectpage.html">Database structures</a></p>
+                  <p class="description">
+                    The is a platform for the borno girls
+                    to take a online formal learning.
+                  </p>
+                  <div class="row" style="margin-left: 1px; color: #858585;">
+                    <span class="iconify" data-inline="false" data-icon="mdi:calendar-range-outline"
+                      style="font-size: 28px;"></span>
+                    <p style="font-size: 12px; margin-left: 10px;"> 28/06/2020 - 28/08/2020</p>
+                  </div>
+
+                  <div style="display: flex; justify-content: flex-end; margin-top: -10px;">
+                    <span class="letters" style="background-color: #31AC4C">
+                      <p>d</p>
+                    </span>
+                    <span class="letters" style="background-color: #764ABC">
+                      <p>e</p>
+                    </span>
+                  </div>
+
+                  <div class="row"
+                    style="display: flex; justify-content: flex-end; padding-right: 20px; margin-top: 10px;">
+                    <span class="iconify" data-inline="false" data-icon="cil:arrow-circle-left"
+                      style="font-size: 30px; color: #C4C4C4;"></span>
+                    <span class="iconify" data-inline="false" data-icon="cil:arrow-circle-right"
+                      style="font-size: 30px; color: #31AC4C;"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <span>
+                  <p class="inner" style="border-bottom: 2px solid #3A78F2;">In progress</p>
+                </span>
+
+                <div class="pendingbox">
+                  <p class="title"><a href="projectpage.html">Set up server</a></p>
+                  <p class="description">
+                    The is a Mobile Platform.
+                  </p>
+                  <div class="row" style="margin-left: 1px; color: #858585;">
+                    <span class="iconify" data-inline="false" data-icon="mdi:calendar-range-outline"
+                      style="font-size: 28px;"></span>
+                    <p style="font-size: 12px; margin-left: 10px;"> 28/06/2020 - 28/08/2020</p>
+                  </div>
+
+                  <div style="display: flex; justify-content: flex-end; margin-top: -10px;">
+                    <span class="letters" style="background-color: #535B70">
+                      <p>a</p>
+                    </span>
+                    <span class="letters" style="background-color: #764ABC">
+                      <p>e</p>
+                    </span>
+                  </div>
+
+                  <div class="row"
+                    style="display: flex; justify-content: flex-end; padding-right: 20px; margin-top: 10px;">
+                    <span class="iconify" data-inline="false" data-icon="cil:arrow-circle-left"
+                      style="font-size: 30px; color: #FF9838;"></span>
+                    <span class="iconify" data-inline="false" data-icon="cil:arrow-circle-right"
+                      style="font-size: 30px; color: #31AC4C;"></span>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-md-4">
+                <span>
+                  <p style="border-bottom: 2px solid #31AC4C;">completed</p>
+                </span>
+
+                <div class="pendingbox">
+                  <p class="title"><a href="projectpage.html">Frontend for admin</a></p>
+                  <p class="description">
+                    The is a platform for the borno girls
+                    to take a online formal learning
+                  </p>
+                  <div class="row" style="margin-left: 1px; color: #858585;">
+                    <span class="iconify" data-inline="false" data-icon="mdi:calendar-range-outline"
+                      style="font-size: 28px;"></span>
+                    <p style="font-size: 12px; margin-left: 10px;"> 28/06/2020 - 28/08/2020</p>
+                  </div>
+
+                  <div style="display: flex; justify-content: flex-end; margin-top: -10px;">
+                    <span class="letters" style="background-color: #FF9838">
+                      <p>c</p>
+                    </span>
+
+                  </div>
+
+                  <div class="row"
+                    style="display: flex; justify-content: flex-end; padding-right: 20px; margin-top: 10px;">
+                    <span class="iconify" data-inline="false" data-icon="cil:arrow-circle-left"
+                      style="font-size: 30px; color: #FF9838;"></span>
+                    <span class="iconify" data-inline="false" data-icon="cil:arrow-circle-right"
+                      style="font-size: 30px; color: #C4C4C4;"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="files-section">
+            <div class="upload">
+              <button class="upload-btn"><span class="iconify" data-inline="false" data-icon="et:upload"
+                  style="font-size: 30px; color:rgba(58, 120, 242, 0.37);;"></span> Upload</button>
+            </div>
+            <div class="files">
+              <table class="table " style=" margin-top: 30px;">
+                <thead>
+                  <tr>
+                    <th scope="col">File Name</th>
+                    <th scope="col"></th>
+                    <th scope="col">description</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row"><a href="#">GCC SRS</a></td>
+                    <td><a href="userP.html">  </a></td>
+                    <td> SRS Document for Attareeq App </td>
+                    <td></td>
+                    <td></td>
+                    <td><span class="iconify" data-inline="false" data-icon="gg:software-download"
+                        style=" font-size: 30px; color: #3A78F2;"></span>
+                      <span class="iconify" data-inline="false" data-icon="ant-design:eye-filled"
+                        style="margin-left: 20px; font-size: 30px; color: #FF9838;"></span></td>
+                  </tr>
+                  <tr>
+                    <td scope="row"><a href="userP.html">User's Story</a></td>
+                    <td><a href="userP.html"></a> </td>
+                    <td>User’s stories for the admin</td>
+                    <td></td>
+                    <td></td>
+                    <td><span class="iconify" data-inline="false" data-icon="gg:software-download"
+                        style=" font-size: 30px; color: #31AC4C;"></span>
+                      <span class="iconify" data-inline="false" data-icon="ant-design:eye-filled"
+                        style="margin-left: 20px; font-size: 30px; color: #FF9838;"></span>
+                    </td>
+                  </tr>
+    
+                  <tr>
+                    <td scope="row"><a href="userP.html">GCC Assessment</a></td>
+                    <td><a href="userP.html">  </a></td>
+                    <td> Pull of questions for level one</td>
+                    <td></td>
+                    <td></td>
+                    <td><span class="iconify" data-inline="false" data-icon="gg:software-download"
+                        style=" font-size: 30px; color: #C4C4C4;"></span>
+                      <span class="iconify" data-inline="false" data-icon="ant-design:eye-filled"
+                        style="margin-left: 20px; font-size: 30px; color: #FF9838;"></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <P>Architecture</P>
+        </section>
+
+        <section>
+          <div class="col-md-4 col-lg-12 comments">
+            <div class="commentsheader">
+              <div class="row">
+                <p style="color: #858585; margin-left: 20px; ">Active : </p>
+
+                <div style="display: flex; margin-left: 10px; margin-top: -4px;">
+                  <span class="letters" style="background-color: #535B70; width: 30px; height: 30px;">
+                    <p style="margin-top: 7px;">a</p>
+                  </span>
+                  <span class="letters" style="background-color: #3A78F2; width: 30px; height: 30px;">
+                    <p style="margin-top: 7px;">b</p>
+                  </span>
+                  <span class="letters" style="background-color: #FF9838; width: 30px; height: 30px;">
+                    <p style="margin-top: 7px;">c</p>
+                  </span>
+                </div>
+              </div>
+
+              <!-- <div class="search" style="float: right;">
+                <input class="search__input2" type="text">
+              </div> -->
+              <label class="search" for="inpt_search" style="float: right; margin-top: -45px;">
+                <input id="inpt_search" type="text" />
+              </label>
+            </div>
+            <div class="commentbody">
+              <textarea type="text" class="commentbodyorder"></textarea>
+            </div>
+          </div>
+          <div class="search_input">
+            <input class="saysomething" type="text" placeholder="Say something here ......">
+          </div>
+
+        </section>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+
+  <script src="js/main.js"></script>
+</body>
+
+
+</html>

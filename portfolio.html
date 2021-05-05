@@ -1,0 +1,370 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Steamlance</title>
+  <link rel="shortcut icon" href="images/ico.ico">
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="fontawesome/css/all.css">
+  <script src="style/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+  <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+
+  <style>
+    .tab-wrap {
+
+      position: relative;
+      display: -webkit-box;
+      display: flex;
+      border-bottom: 1px solid #c4c4cc;
+    }
+
+    input[type="radio"][name="tabs"] {
+      position: absolute;
+      z-index: -1;
+    }
+
+    input[type="radio"][name="tabs"]:checked+.tab-label-content label {
+      color: #535B70;
+    }
+
+    input[type="radio"][name="tabs"]:checked+.tab-label-content .tab-content {
+      display: block;
+    }
+
+    input[type="radio"][name="tabs"]:nth-of-type(1):checked~.slide {
+      left: calc((100% / 2) * 0);
+    }
+
+    input[type="radio"][name="tabs"]:nth-of-type(2):checked~.slide {
+      left: calc((100% / 2) * 1);
+    }
+
+    input[type="radio"][name="tabs"]:first-of-type:checked~.slide {
+      left: 0;
+    }
+
+    label {
+      cursor: pointer;
+      color: #A7A7A7;
+      /* background-color: #00bcd4; */
+      box-sizing: border-box;
+      display: -webkit-inline-box;
+      display: inline-flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      text-align: center;
+      height: 56px;
+      -webkit-transition: color 0.2s ease;
+      transition: color 0.2s ease;
+      width: 100%;
+    }
+
+    .slide {
+      background: #535B70;
+      width: calc(100% / 2);
+      height: 4px;
+      position: absolute;
+      left: 0;
+      top: calc(100% - 4px);
+      -webkit-transition: left 0.3s ease-out;
+      transition: left 0.3s ease-out;
+    }
+
+    .tab-label-content {
+      width: 100%;
+    }
+
+    .tab-label-content .tab-content {
+      position: absolute;
+      top: 100px;
+      left: 16px;
+      line-height: 130%;
+      display: none;
+    }
+
+    @media screen and (max-width: 800px) {
+      h1 {
+        padding: 40px 0 90px 10%;
+      }
+
+      .tab-wrap {
+        width: 80%;
+        margin-left: 10%;
+        top: -106px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <img src="images/logoW.png" alt="">
+      <div class="profile">
+        <img src="images/prof.png" alt="" height="63px" width="63px" style="margin-bottom: 10px;">
+        <p>Abubakar Bello</p>
+        <p>ID : #3245</p>
+      </div>
+      <button class="btn-pro"><a href="#">Pro</a></button>
+    </div>
+    <div>
+      <ul class="list-unstyled components">
+        <li>
+          <a href="index.html"><span class="iconify" data-inline="false" data-icon="mdi:home-roof"></span> Dashboard</a>
+        </li>
+        <li>
+          <a href="project.html"><span class="iconify" data-inline="false" data-icon="whh:projectpier"></span>
+            Projects</a>
+        </li>
+        <li>
+          <a href="messages.html"><span class="iconify" data-inline="false" data-icon="tabler:messages"></span>
+            Messages</a>
+        </li>
+        <li>
+          <a href="analytics.html"><span class="iconify" data-inline="false" data-icon="uim:analytics"></span>
+            Analytics</a>
+        </li>
+        <li class="active">
+          <a href="portfolio.html"><span class="iconify" data-inline="false" data-icon="dashicons:portfolio"></span>
+            Portfolio</a>
+        </li>
+        <li class="">
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span
+              class="iconify" data-inline="false" data-icon="carbon:user-profile"></span> Profile</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li>
+              <a href="#">profile 1</a>
+            </li>
+            <li>
+              <a href="#">profile 2</a>
+            </li>
+            <li>
+              <a href="#">profile 3</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="teams.html"><span class="iconify" data-inline="false" data-icon="mdi:microsoft-teams"></span>
+            Teams</a>
+        </li>
+        <li>
+          <a href="community.html"><span class="iconify" data-inline="false"
+              data-icon="maki:residential-community-15"></span>
+            Community</a>
+        </li>
+      </ul>
+
+  </nav>
+
+  <!-- Page Content -->
+  <div id="content">
+
+    <div>
+      <p class="font-weight-bold h2">Details</p>
+    </div>
+
+    <div class="" style="background: #ffffff; padding-bottom: 820px;  border-radius: 10px; ">
+      <div class="tab-wrap container">
+        <input type="radio" name="tabs" id="tab1">
+        <div class="tab-label-content" id="tab1-content">
+          <label for="tab1">Personal</label>
+          <div class="tab-content">
+
+            <div class="address-details p-3 mt-4">
+              <div class="container">
+                <div class="row">
+                  <img src="images/prof.png" class="prof-img" alt="" height="80px" width="80px">
+                  <span style="line-height: 10px;" class="col-md-4">
+                    <p style="font-size: 18px; font-weight: bold">Abubakar Bello</p>
+                    <p style="font-size: 12px; color: #858585;">Backend Engineer</p>
+                  </span>
+                  <div class="col-md-2"></div>
+                  <div class="col-md-2"></div>
+                  <button class="btn-online btn">Online</button>
+                </div>
+
+                <div class="the-address mt-4">
+                  <div class="row">
+                    <div class="real-address row ">
+                      <span class="iconify" data-inline="false" data-icon="ic:round-location-on"
+                        style="font-size: 24px; color: #3A78F2;"></span>
+                      <div>
+                        <p>21 Sabo Bakin Zuwa Road, Tsamiyar Boka,<br>
+                          Hotoro GRA,<br>
+                          Kano State.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="social" style="float: right;">
+                    <div class="row">
+                      <a href=""><span class="iconify" data-inline="false" data-icon="fa-brands:facebook"
+                          style="font-size: 24px; color: #3A78F2;"></span></a>
+                      <a href=""><span class="iconify" data-inline="false" data-icon="ant-design:twitter-outlined"
+                          style="font-size: 24px; color: #3A78F2;"></span></a>
+                      <a href=""><span class="iconify" data-inline="false"
+                          data-icon="entypo-social:linkedin-with-circle"
+                          style="font-size: 24px; color: #3A78F2;"></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="basic-details">
+              <div class="row">
+                <div class="basic col-md-6">
+                  <p class="h5 font-weight-bold" style="color: #858585;">Basic Details</p>
+                  <a href="" style="float: right; margin-top: -30px;"><span class="iconify" data-inline="false"
+                      data-icon="foundation:pencil" style="font-size: 24px; color: #1F2C4F;"></span></a>
+
+                  <div class="nation">
+                    <span class="row" style="margin-top: 20px;">
+                      <p class="que">Nationality :</p>
+                      <p class="ans" style="padding-left: 250px;">Nigeria</p>
+                    </span>
+                    <span class="row">
+                      <p class="que">Member since :</p>
+                      <p class="ans" style="padding-left: 220px;">October 6, 2014</p>
+                    </span>
+                    <span class="row">
+                      <p class="que">Phone Number :</p>
+                      <p class="ans" style="padding-left: 200px;">+234 8135719391</p>
+                    </span>
+                    <span class="row">
+                      <p class="que">Role :</p>
+                      <p class="ans" style="padding-left: 270px;">Backend Engineer</p>
+                    </span>
+                    <span class="row">
+                      <p class="que">Email :</p>
+                      <p class="ans" style="padding-left: 220px;">assadeeq543@gmail.com</p>
+                    </span>
+                  </div>
+
+                  <div class="description">
+                    <p class="h5 font-weight-bold" style="color: #858585;">Description</p>
+                    <p style="font-size: 14px; color: #858585;">I am Abubakar Hussaini Bello studying civil engineering
+                      as a
+                      case of study, a computer analyst & repair, web programming,
+                      batch programming, and also a graphics designer.</p>
+                  </div>
+                  <div>
+                    <p class="h5 font-weight-bold" style="color: #858585;">Skills</p>
+                    <a href="" style="float: right; margin-top: -35px;"><span class="iconify" data-inline="false"
+                        data-icon="foundation:pencil" style="font-size: 24px; color: #1F2C4F;"></span></a>
+                  </div>
+
+                  <div class="skill-box row">
+                    <button class="btn btn-skill"><a href="">HTML</a></button>
+                    <button class="btn btn-skill"><a href="">PHP</a></button>
+                    <button class="btn btn-skill"><a href="">Jquery</a></button>
+                    <button class="btn btn-skill"><a href="">Kotlin</a></button>
+                    <button class="btn btn-skill"><a href="">Java</a></button>
+                  </div>
+
+                </div>
+                <div class="vl"></div>
+
+                <div class="certification col-md-5">
+                  <p class="h5 font-weight-bold" style="color: #858585;">Certification</p>
+                  <a href="" style="float: right; margin-top: -35px;"><span class="iconify" data-inline="false"
+                      data-icon="foundation:pencil"
+                      style="font-size: 24px; color: #1F2C4F; margin-left: 30px;"></span></a>
+
+                  <div>
+                    <p style="color: #484C56;">Diploma In Computer Hardware Engineering</p>
+                    <p class="font-weight-bold">Frontier ICT Ventures 2014</p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <input type="radio" name="tabs" id="tab2" checked>
+        <div class="tab-label-content" id="tab2-content">
+          <label for="tab2">Bank Detail</label>
+          <div class="tab-content container">
+            <div class="atm-card ">
+              <span class="row">
+                <span class="iconify" data-inline="false" data-icon="mdi-light:bank" style="font-size: 30px; color: #c9c9c9;"></span>
+                <p style="color: #c9c9c9; font-size: 14px; padding: 10px;">Bank Name</p>
+              </span>
+              <p style="color: #FFFFFF; font-size: 18px; margin-left: 35px; ">GT Bank</p>
+
+              <div style="float: right; margin-top: -60px;" class="row">
+                <div>
+                  <i class="far fa-eye-slash" style="font-size: 30px; color: #c9c9c9;" onclick="view(this)"></i>
+                  <p style="color: #c9c9c9; font-size: 14px; margin-top: 10px;">View</p>
+                </div>
+                <div style="padding-left: 20px;">
+                  <span class="iconify" data-inline="false" data-icon="foundation:pencil"
+                    style="font-size: 30px; color: #c9c9c9; "></span>
+                  <p style="color: #c9c9c9; font-size: 14px; margin-top: 10px;">Edit</p>
+                </div>
+              </div>
+
+              <div class="justify-content-center" style="font-size:72px; color: #ffffff; margin-left: 200px; margin-top: 100px;">
+                <p id="display">*** **** ***</p>
+              </div>
+              <div class="container" style="margin-top: 100px;">
+                <div class="row">
+                  <div class="col-md-4">
+                    <span class="row">
+                      <span class="iconify" data-inline="false" data-icon="mdi:wallet-outline"
+                        style="font-size: 30px; color: #c9c9c9; "></span>
+                      <p style="color: #c9c9c9; font-size: 14px; padding: 7px">Bank Account Number</p>
+                    </span>
+                    <p style="font-size: 16px; font-weight:500; color: #ffffff; margin-left: 30px;">123 456 7890</p>
+                  </div>
+                  <div class="col-md-5">
+                    <span class="row">
+                      <span class="iconify" data-inline="false" data-icon="bi:person"
+                        style="font-size: 30px; color: #c9c9c9; "></span>
+                      <p style="color: #c9c9c9; font-size: 14px; padding: 7px">Account Name</p>
+                    </span>
+                    <p style="font-size: 16px; font-weight:500; color: #ffffff; margin-left: 30px;">Bello Abubakar Hussaini</p>
+                  </div>
+                  <div class="col-md-3">
+                    <span class="row">
+                      <span class="iconify" data-inline="false" data-icon="ic:baseline-merge-type"
+                        style="font-size: 30px; color: #c9c9c9; "></span>
+                      <p style="color: #c9c9c9; font-size: 14px; padding: 7px">Account Type</p>
+                    </span>
+                    <p style="font-size: 16px; font-weight:500; color: #ffffff; margin-left: 30px;">Savings</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="slide"></div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+
+  <script src="js/main.js"></script>
+</body>
+
+
+</html>
